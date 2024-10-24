@@ -1,0 +1,68 @@
+slip13
+
+import java.io.*;
+
+class Slip13_1 {
+    public static void main(String argd[]) throws Exception {
+        String fname = argd[0];
+        File f = new File(fname);
+
+        if (f.isFile()) {
+            FileInputStream fis = new FileInputStream(fname);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+            String line;
+            int lineCount = 0;
+            int wordCount = 0;
+
+            while ((line = br.readLine()) != null) {
+                lineCount++;
+                // Split the line into words and count them
+                String[] words = line.trim().split("\\s+"); // Split by whitespace
+                wordCount += words.length;
+            }
+
+            br.close(); // Close the BufferedReader
+
+            System.out.println("Number of lines in the given file: " + lineCount);
+            System.out.println("Number of words in the given file: " + wordCount);
+        } else {
+            System.out.println("File does not exist");
+        }
+    }
+}
+
+
+Q2
+
+import java.text.SimpleDateFormat;   
+import java.util.Date;  
+  
+class slip13_2 
+{   
+ public static void main(String[] args)  
+ {   
+  Date date = new Date();   
+  SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");   
+  String strDate= formatter.format(date);   
+  System.out.println(strDate); 
+   
+  SimpleDateFormat formatter1 = new SimpleDateFormat("MM-dd-yyyy");   
+  String strDate1= formatter1.format(date);    
+  System.out.println(strDate1); 
+   
+  SimpleDateFormat formatter2 = new SimpleDateFormat("EEEEE 
+MMMMM dd yyyy");   
+  String strDate2= formatter2.format(date);  
+  System.out.println(strDate2); 
+   
+  SimpleDateFormat formatter3 = new SimpleDateFormat("EEEEE 
+MMMMM dd HH:mm:ss z yyyy");   
+  String strDate3= formatter3.format(date);  
+  System.out.println(strDate3); 
+   
+  SimpleDateFormat formatter4 = new SimpleDateFormat("dd/MM/yyyy 
+HH:mm:ss a");   
+  String strDate4= formatter4.format(date);  
+  System.out.println(strDate4); 
+ }    
+} 
